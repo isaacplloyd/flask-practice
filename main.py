@@ -7,11 +7,11 @@ polo = poloniex.Poloniex()
 app = Flask(__name__)
 @app.route('/')
 def hello():
-    return "Hello world!"
+	return "Hello world!"
 
 @app.route('/get-ltc')
 def get_ltc():
-    price = polo('returnTicker')['USDT_LTC']['last']
+	price = polo('returnTicker')['USDT_LTC']['last']
 	return price
 
 if __name__ == "__main__":
