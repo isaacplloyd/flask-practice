@@ -1,2 +1,10 @@
-#Will heroku display this without a web server??
-return "<h1>Hello world!</h1>"
+from flask import Flask
+
+#practice - Hello world program at web server home directory
+app = Flask(__name__)
+@app.route('/')
+def hello():
+    return "Hello world!"
+
+if __name__ == "__main__":
+	app.run()
