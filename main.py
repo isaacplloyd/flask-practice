@@ -12,7 +12,8 @@ def hello():
 @app.route('/get-ltc')
 def get_ltc():
 	price = polo('returnTicker')['USDT_LTC']['last']
-	return price
+	display = "<h2>LTC price: $" + price + "</h2>"
+	return display
 
 if __name__ == "__main__":
 	app.run(host='127.0.0.1')
