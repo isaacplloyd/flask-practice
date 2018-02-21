@@ -7,12 +7,15 @@ polo = poloniex.Poloniex()
 app = Flask(__name__)
 @app.route('/')
 def hello():
-	return "Hello world!"
+	with open("index.html") as file:
+		response = file.read()
+	return response
 
 @app.route('/get-ltc')
 def get_ltc():
 	price = polo('returnTicker')['USDT_LTC']['last']
 	display = "<h2>LTC price: $" + price + "</h2>"
+	display += "<br> <a href=\"/get-ltc\">Refresh...</a>"
 	return display
 
 if __name__ == "__main__":
